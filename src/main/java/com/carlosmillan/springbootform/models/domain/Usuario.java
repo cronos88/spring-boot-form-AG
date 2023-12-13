@@ -1,6 +1,8 @@
 package com.carlosmillan.springbootform.models.domain;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 public class Usuario {
 
@@ -9,11 +11,13 @@ public class Usuario {
     private String nombre;
     @NotEmpty
     private String apellido;
-    @NotEmpty
+    @NotEmpty(message = "Debes de colocar un username")
+    @Size(min = 3, max = 8)
     private String username;
     @NotEmpty
     private String password;
     @NotEmpty
+    @Email(message = "error mal correo")
     private String email;
 
     public String getIdentificador() {
