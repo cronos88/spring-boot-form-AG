@@ -7,8 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
+@SessionAttributes("usuario")
 public class FormController {
 
     @GetMapping("/form")
@@ -23,7 +26,7 @@ public class FormController {
     }
 
     @PostMapping("/form")
-    public String procesar(@Valid /*@ModelAttribute("user")*/ Usuario usuario, BindingResult result, Model model){
+    public String procesar(@Valid /*@ModelAttribute("user")*/ Usuario usuario, BindingResult result, Model model, SessionStatus status){
 //                           @RequestParam String username,
 //                           @RequestParam String password,
 //                           @RequestParam String email) {
@@ -48,7 +51,7 @@ public class FormController {
         }
 
         model.addAttribute("usuario", usuario);
-
+        status.setComplete();
         return "resultado";
     }
 }
