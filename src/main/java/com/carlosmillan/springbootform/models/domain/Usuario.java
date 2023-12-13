@@ -3,14 +3,16 @@ package com.carlosmillan.springbootform.models.domain;
 import jakarta.validation.constraints.NotEmpty;
 
 public class Usuario {
-    @NotEmpty
-    String username;
+
 
     @NotEmpty
-    String password;
-
+    private String username;
     @NotEmpty
-    String email;
+    private String password;
+    @NotEmpty
+    private String email;
+
+
 
     public String getUsername() {
         return username;
