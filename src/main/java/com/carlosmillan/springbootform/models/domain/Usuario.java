@@ -2,6 +2,7 @@ package com.carlosmillan.springbootform.models.domain;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public class Usuario {
@@ -19,6 +20,9 @@ public class Usuario {
     @NotEmpty(message = "Correo con formato incorrecto")
     @Email(message = "error mal correo")
     private String email;
+    @NotEmpty
+    @Pattern(regexp = "60[1-9]{1}-[0-9]{7}")
+    private String phone;
 
     public String getIdentificador() {
         return identificador;
@@ -66,5 +70,13 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
