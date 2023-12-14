@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 public class Usuario {
 
     private String identificador;
-    @NotEmpty
+    @NotEmpty(message = "El nombre no puede ser vacío")
     private String nombre;
     @NotEmpty
     private String apellido;
@@ -16,7 +16,7 @@ public class Usuario {
     private String username;
     @NotEmpty
     private String password;
-    @NotEmpty
+    @NotEmpty(message = "Correo con formato incorrecto")
     @Email(message = "error mal correo")
     private String email;
 

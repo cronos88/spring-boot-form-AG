@@ -26,27 +26,10 @@ public class FormController {
     }
 
     @PostMapping("/form")
-    public String procesar(@Valid /*@ModelAttribute("user")*/ Usuario usuario, BindingResult result, Model model, SessionStatus status){
-//                           @RequestParam String username,
-//                           @RequestParam String password,
-//                           @RequestParam String email) {
-
-//        Usuario usuario = new Usuario();
-//        usuario.setUsername(username);
-//        usuario.setPassword(password);
-//        usuario.setEmail(email);
-
+    public String procesar(@Valid Usuario usuario, BindingResult result, Model model, SessionStatus status){
         model.addAttribute("titulo", "Resultado Form");
 
         if(result.hasErrors()) {
-            /*Map<String, String> errores = new HashMap<>();
-            result.getFieldErrors().forEach(err -> {
-                errores.put(err.getField(), "El campo "
-                        .concat(err.getField()).concat(" ")
-                        .concat(Optional.ofNullable(err.getDefaultMessage()).orElse("")));
-            });
-            model.addAttribute("error", errores);*/
-
             return "form"; //retorna el formulario si hay error en el mismo
         }
 
