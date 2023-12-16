@@ -34,13 +34,14 @@ public class FormController {
     public String procesar(@Valid Usuario usuario, BindingResult result, Model model, SessionStatus status){
 
         validador.validate(usuario, result); // Nueva Línea
-        model.addAttribute("titulo", "Resultado Form");
 
         if(result.hasErrors()) {
             return "form"; //retorna el formulario si hay error en el mismo
         }
 
+        model.addAttribute("titulo", "Resultado Form");
         model.addAttribute("usuario", usuario);
+
         status.setComplete();
         return "resultado";
     }

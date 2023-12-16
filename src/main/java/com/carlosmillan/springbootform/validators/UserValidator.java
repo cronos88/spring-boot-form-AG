@@ -17,7 +17,14 @@ public class UserValidator implements Validator {
     public void validate(Object target, Errors errors) {
         Usuario usuario = (Usuario) target;
 
-        ValidationUtils.rejectIfEmpty(errors, "nombre", "NotEmpty.usuario.nombre");
+        ValidationUtils.rejectIfEmpty(errors, "password", "NotEmpty.usuario.password");
+
+        if(usuario.getEmail().isEmpty()) {
+            errors.rejectValue("email", "NotEmpty.usuario.email");
+        } else if(!usuario.getEmail().contains("@")) {
+            errors.rejectValue("email", "Email.usuario.email");
+        }
+
         if(!usuario.getPhone().matches("60[1-9]{1}-[0-9]{7}")) {
             errors.rejectValue("phone", "Pattern.usuario.phone");
         }
