@@ -1,5 +1,6 @@
 package com.carlosmillan.springbootform.models.domain;
 
+import com.carlosmillan.springbootform.validators.IdentificadorRegex;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
@@ -16,6 +17,7 @@ public class Usuario {
     //@NotEmpty
     private String password;
     private String email;
+    @IdentificadorRegex
     private String phone;
 
     public String getIdentificador() {

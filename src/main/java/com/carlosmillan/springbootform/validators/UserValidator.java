@@ -25,8 +25,8 @@ public class UserValidator implements Validator {
             errors.rejectValue("email", "Email.usuario.email");
         }
 
-        if(!usuario.getPhone().matches("60[1-9]{1}-[0-9]{7}")) {
+        /*if(!usuario.getPhone().matches("60[1-9]{1}-[0-9]{7}")) {
             errors.rejectValue("phone", "Pattern.usuario.phone");
-        }
+        }*/
     }
 }
