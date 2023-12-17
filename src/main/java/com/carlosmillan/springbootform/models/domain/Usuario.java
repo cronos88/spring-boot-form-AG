@@ -1,6 +1,8 @@
 package com.carlosmillan.springbootform.models.domain;
 
 import com.carlosmillan.springbootform.validators.IdentificadorRegex;
+import com.carlosmillan.springbootform.validators.Requerido;
+
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
@@ -9,13 +11,14 @@ public class Usuario {
     private String identificador;
     @NotEmpty(message = "El campo Nombre es requerido")
     private String nombre;
-    @NotEmpty(message = "El campo Apellido es requerido")
+    //@NotEmpty(message = "El campo Apellido es requerido")
+    @Requerido
     private String apellido;
     @NotEmpty(message = "El campo username es requerido")
     @Size(min = 3, max = 8)
     private String username;
-    //@NotEmpty
     private String password;
+    @Requerido
     private String email;
     @IdentificadorRegex
     private String phone;
