@@ -1,17 +1,11 @@
 package com.carlosmillan.springbootform.models.domain;
 
-import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 import com.carlosmillan.springbootform.validators.IdentificadorRegex;
 import com.carlosmillan.springbootform.validators.Requerido;
+import jakarta.validation.constraints.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import java.util.Date;
 
 public class Usuario {
 
@@ -39,9 +33,10 @@ public class Usuario {
 	@Min(5)
 	@Max(5000)
 	private Integer cuenta;
-	
+
 	@NotNull
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Future
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaNacimiento;
 
 	public Integer getCuenta() {
